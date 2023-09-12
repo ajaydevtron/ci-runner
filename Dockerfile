@@ -27,7 +27,7 @@ RUN chmod +x /git-ask-pass.sh
 
 RUN (curl -sSL "https://github.com/buildpacks/pack/releases/download/v0.27.0/pack-v0.27.0-linux.tgz" | tar -C /usr/local/bin/ --no-same-owner -xzv pack)
 
-RUN echo "{"insecure-registries" : [ "keus-nginx-controller.utils" ]}" > /etc/docker/daemon.json
+RUN sudo echo "{"insecure-registries" : [ "keus-nginx-controller.utils" ]}" > /etc/docker/daemon.json
 
 
 COPY --from=build-env /go/bin/cirunner .
