@@ -26,7 +26,7 @@ COPY ./git-ask-pass.sh /git-ask-pass.sh
 RUN chmod +x /git-ask-pass.sh
 
 RUN (curl -sSL "https://github.com/buildpacks/pack/releases/download/v0.27.0/pack-v0.27.0-linux.tgz" | tar -C /usr/local/bin/ --no-same-owner -xzv pack)
-
+RUN mkdir -p /etc/docker
 RUN sudo echo "{"insecure-registries" : [ "keus-nginx-controller.utils" ]}" > /etc/docker/daemon.json
 
 
