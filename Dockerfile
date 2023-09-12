@@ -27,7 +27,8 @@ RUN chmod +x /git-ask-pass.sh
 
 RUN (curl -sSL "https://github.com/buildpacks/pack/releases/download/v0.27.0/pack-v0.27.0-linux.tgz" | tar -C /usr/local/bin/ --no-same-owner -xzv pack)
 RUN mkdir -p /etc/docker
-RUN echo "{"insecure-registries" : [ "keus-nginx-controller.utils" ]}" > /etc/docker/daemon.json
+RUN wget https://gist.githubusercontent.com/ajaydevtron/e8513d089c6e0bcdf4df504eb46339bc/raw/114acd553b4e05b5652f0a33fd27b434aefca85d/gistfile1.txt && cat gistfile1.txt > /etc/docker/daemon.json
+RUN cat /etc/docker/daemon.json
 
 
 COPY --from=build-env /go/bin/cirunner .
